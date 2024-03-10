@@ -1,47 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <!-- <h1 class="" id="" style=""> -->
 
-  <main>
-    <TheWelcome />
-  </main>
+
+    <!-- <button @click="">Aceptar</button> -->
+    <!-- <button v-on:click="" -->
+    
+    <!-- Contador -->
+    <button @click="decremento">-</button>
+    <span>{{ contador }}</span>
+    <button @click="incremento">+</button>
+
 </template>
 
+
+<script setup>
+import {ref} from "vue"
+const contador=ref(0);
+const decremento = () =>{
+  contador.value--;
+}
+const incremento = () =>{
+  contador.value++;
+}
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+span{
+  /* cero arriba abajo y 5 derecha izquierda */
+  padding: 0 5px;
 }
 </style>

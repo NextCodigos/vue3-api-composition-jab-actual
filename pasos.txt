@@ -12,3 +12,335 @@ Done. Now run:
   ╱  ~/M/V/vue3-api-composition-jab-actual  
 
 
+///////////////////////////////////////////////////
+
+Ejemplo 1:
+
+App.vue
+
+<!-- Pongo setup evitar poner exportk -->
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+
+</script>
+
+<template>
+  <h1>Hola mundo</h1>
+</template>
+
+<style scoped>
+h1{
+  color: red;
+}
+</style>
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+Ejemplo 2:
+
+<!-- Pongo setup evitar poner export -->
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+const miNombre="Jab"
+const miEdad=18
+</script>
+
+<template>
+  <h1>Hola {{ miNombre }} y tendre {{ miEdad+1 }}</h1>
+</template>
+
+<style scoped>
+h1{
+  color: red;
+}
+</style>
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+style
+
+v-bind:
+Creo variable miColor en js y llamo  en html con v:bind:
+<h1 v-bind:style="miColor">
+
+///////
+
+<!-- Pongo setup evitar poner export -->
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+const miNombre="Jab"
+const miEdad=18
+const miColor="color:green;font-size:3em"
+</script>
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+  <h1 v-bind:style="miColor">
+    Hola {{ miNombre }} y tendré {{ miEdad+1 }}
+    </h1>
+</template>
+
+<style scoped>
+
+</style>
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+class
+
+v-bind:
+Creo variable selector en js y llamo  en html con v:bind:
+<h1 v-bind:class="selector">
+
+///////
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+  <h1 v-bind:class="selector">
+    Hola {{ miNombre }} y tendré {{ miEdad+1 }}
+    </h1>
+</template>
+
+
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+const miNombre="Jab"
+const miEdad=18
+const miColor="color:green;font-size:3em"
+const selector="azul"
+</script>
+
+<style scoped>
+.azul{
+  color: blue;
+}
+</style>
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+v:on para llamar a la funcion desde elemento html,
+funcion sin parametro:
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+
+  <!-- <h1 :class="selector"> -->
+  <h1 v-bind:class="selector">
+    Hola {{ miNombre }} y tendré {{ miEdad+1 }}
+    </h1>
+    <!-- <button @click="">Aceptar</button> -->
+    <!-- Funcion saludar -->
+    <button v-on:click="saludar">Aceptar</button>
+</template>
+
+
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+const miNombre="Jab"
+const miEdad=18
+const miColor="color:green;font-size:3em"
+const selector="azul"
+const saludar=()=>{
+  console.log("Hola")
+}
+</script>
+
+<style scoped>
+.azul{
+  color: blue;
+}
+</style>
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+v:on para llamar a la funcion desde elemento html,
+funcion con parametro:
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+
+  <!-- <h1 :class="selector"> -->
+  <h1 v-bind:class="selector">
+    Hola {{ miNombre }} y tendré {{ miEdad+1 }}
+    </h1>
+    <!-- <button @click="">Aceptar</button> -->
+    <!-- Funcion saludar -->
+    <button v-on:click="saludar(nombre)">Aceptar</button>
+</template>
+
+
+<script setup>
+// Ejemplo importar componente
+// import HelloWorld from './components/HelloWorld.vue'
+const miNombre="Jab"
+const nombre="Luis"
+const miEdad=18
+const miColor="color:green;font-size:3em"
+const selector="azul"
+const saludar=(nombre)=>{
+  console.log(`Hola ${nombre}`)
+}
+</script>
+
+<style scoped>
+.azul{
+  color: blue;
+}
+</style>
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+Variables ref reactivas con ref:
+
+
+ no tengo importada d error:
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+
+
+    <!-- <button @click="">Aceptar</button> -->
+    <!-- <button v-on:click="" -->
+    
+    <!-- Contador -->
+    <button @click="decremento">-</button>
+    <span>{{ contador }}</span>
+    <button @click="incremento">+</button>
+
+</template>
+
+
+<script setup>
+
+const contador=0;
+const decremento = () =>{
+  contador--;
+}
+const incremento = () =>{
+  contador++;
+}
+</script>
+
+<style scoped>
+.azul{
+  color: blue;
+}
+</style>
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+Variables ref reactivas con ref:
+
+<template>
+
+  <!-- <h1 class="" id="" style=""> -->
+
+
+    <!-- <button @click="">Aceptar</button> -->
+    <!-- <button v-on:click="" -->
+    
+    <!-- Contador -->
+    <button @click="decremento">-</button>
+    <span>{{ contador }}</span>
+    <button @click="incremento">+</button>
+
+</template>
+
+
+<script setup>
+import {ref} from "vue"
+const contador=ref(0);
+const decremento = () =>{
+  contador.value--;
+}
+const incremento = () =>{
+  contador.value++;
+}
+</script>
+
+<style scoped>
+span{
+  /* cero arriba abajo y 5 derecha izquierda */
+  padding: 0 5px;
+}
+</style>
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////
