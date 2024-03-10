@@ -1,0 +1,14 @@
+✔ Add ESLint for code quality? … No / Yes
+
+Scaffolding project in /home/next/Música/Vue3-varios/vue3-api-composition-jab-actual/repasovue3lab...
+
+Done. Now run:
+
+  cd repasovue3lab
+  npm install
+  npm run dev
+
+
+  ╱  ~/M/V/vue3-api-composition-jab-actual  
+
+
